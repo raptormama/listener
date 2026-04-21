@@ -429,6 +429,8 @@ end
 --
 function Main:OnSystemMsg( event, message )
 
+	if not canaccessvalue(message) then return end --JK
+
 	do
 		-- check our special patterns to split this event
 		-- into sub events
@@ -478,6 +480,10 @@ end
 function Main:OnChatMsgTextEmote( event, message, sender, language, 
 								  a4, a5, a6, a7, a8, a9, a10, a11, 
 								  guid, a13, a14 )
+
+	if not canaccessallvalues(event, message, sender, language, 
+								  a4, a5, a6, a7, a8, a9, a10, a11, 
+								  guid, a13, a14) then return end
 								  
 	if guid ~= UnitGUID( "player" ) then
 		local realm = message:match( sender .. "%-([A-Za-z0-9']+)" )
@@ -568,6 +574,9 @@ end
 --
 function Main:OnChatMsg( event, message, sender, language, a4, a5, a6, a7, a8, 
                          a9, a10, a11, guid, a13, a14 )
+
+	if not canaccessallvalues(event, message, sender, language, a4, a5, a6, a7, a8, 
+                         a9, a10, a11, guid, a13, a14) then return end
 						 
 	if sender == "" then return end
 
