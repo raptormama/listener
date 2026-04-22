@@ -1,8 +1,9 @@
-to build, checkout forgepush
+This repository was created to submit a pull request for the Listener addon for World of Warcraft.
 
-PS C:\repos\listener> py ..\forgepush\forgepush.py
-Cleanup...
-Copying exports.
-Post-processing files.
+The game was recently updated to change when addons (like this one) are allowed to access certain types of data.
 
-.forgepush now contains the staged addon folder
+It's not quite ready to use; the original author used Forgepush to stage it for release.
+
+You can still get the fixes by downloading the original [from Curseforge.com](https://www.curseforge.com/wow/addons/listener) and then opening the src folder inside. Download [listener.lua](https://github.com/raptormama/listener/blob/main/addon/src/listener.lua) from this repository and overwrite the file that's already in the folder.
+
+Hopefully it won't be long til an official fix is released.
