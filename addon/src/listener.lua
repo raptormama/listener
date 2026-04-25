@@ -394,6 +394,7 @@ function Main.CheckPoke( msg, sender )
 	if loc == "enUS" then
 		-- Currently only supporting english.
 		if msg:find( " you" ) then
+			if not canaccessvalue(UnitName( "target" )) then return end
 			if Main.FullName('target') == sender then return end
 			
 			-- There are a handful of emotes that contain " you" regardless
@@ -929,7 +930,7 @@ function Main.AddChatHistory( sender, event, message, language, guid, channel )
 	end
 	
 	-- if the player's target emotes, then beep+flash
-	if (Main.db.profile.notify_target_sound or Main.db.profile.notify_target_flash)
+	if (Main.db.profile.notify_target_sound or Main.db.profile.notify_target_flash) and canaccessvalue(UnitName( "target" ))
 	   and not Main.Frame.SKIP_BEEP[entry.e]
 	   and Main.frames[2]:EntryFilter( entry ) -- snooper filter
        and Main.FullName("target") == sender
